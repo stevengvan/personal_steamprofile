@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import User from "./components/User";
+import Recent from "./components/Recent";
+import Games from "./components/Games";
+import GameStats from "./components/GameStats";
+import { useState } from "react";
 
 function App() {
+  const [toggle, setToggle] = useState(false);
+  const [stats, setStats] = useState(null);
+  const [achievements, setAchievements] = useState(null);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="menu">
+        <User />
+        <Recent
+          setShowStats={setToggle}
+          setStats={setStats}
+          setAchievements={setAchievements}
+        />
+      </div>
+      <div className="content">
+        {toggle && (
+          <GameStats
+            toggle={setToggle}
+            stats={stats}
+            achievements={achievements}
+          />
+        )}
+        <div style={toggle ? { display: "none" } : { height: "inherit" }}>
+          <Games
+            setShowStats={setToggle}
+            setStats={setStats}
+            setAchievements={setAchievements}
+          />
+        </div>
+      </div>
     </div>
   );
 }
