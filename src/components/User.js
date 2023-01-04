@@ -31,7 +31,8 @@ function User() {
       />
       <div className="info">
         <h1 className="username" alt="Steam username">
-          {user ? user.personaname : null}
+          {user && user.personaname.substring(0, 16)}
+          {user && user.personaname.length > 16 && "..."}
         </h1>
         <h6 className="steamid" alt="Steam user ID">
           {user ? user.steamid : null}
