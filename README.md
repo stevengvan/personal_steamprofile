@@ -33,8 +33,7 @@ The following API endpoints are used for this project:
 
 ## Setting Up Personal Steam Profile
 
-A `.env` will need to be made in the project directory. The following line must be made for the `.env` file, where the API key will go into the curly brackets:\
-`REACT_APP_STEAM_API_KEY={STEAM_API_KEY_HERE}`
+A `.env` will need to be made in the project directory. A `.env_sample` file is available to show what should be in the .env file.
 
 In `index.js` in the main project directory and not the `src` directory, the **STEAM_ID** variable can be replaced with any ID of a Steam account (my ID is provided as a default).
 
