@@ -1,5 +1,5 @@
 .statsContainer {
-  background-color: rgb(8, 10, 18);
+  background-color: rgb(22, 24, 34);
   height: 100%;
   padding: 10px;
   -webkit-user-select: none; /* Safari */
@@ -15,11 +15,15 @@
   justify-content: flex-end;
   text-align: right;
   margin-bottom: 30px;
+  font-size: xx-large;
 }
 .closeBtn:hover {
   cursor: pointer;
 }
 
+.gameName {
+  width: fit-content;
+}
 .gameID {
   margin-left: 10px;
 }

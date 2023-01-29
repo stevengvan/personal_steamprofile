@@ -35,16 +35,20 @@ function GameStats({ toggle, stats, achievements }) {
 
   return (
     <div className="statsContainer">
-      <h3 className="closeBtn" onClick={() => toggle(null)}>
+      <button className="closeBtn" onClick={() => toggle(false)}>
         CLOSE
-      </h3>
+      </button>
 
       <a
+        className={"gameName"}
         title={stats.name}
         alt={stats.name}
         href={`https://store.steampowered.com/app/${stats.appid}/`}
       >
-        <h3>{stats.name}</h3>
+        <h3>
+          {stats.name.substring(0, 50)}
+          {stats.name.length > 50 && "..."}
+        </h3>
       </a>
       <i className="gameID">ID: {stats.appid}</i>
 

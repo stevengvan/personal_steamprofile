@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Personal Steam Profile
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A basic Steam profile loader that retrieves all owned games and data for the game. This project was designed with the idea of showing all of the content without needing to scroll through the entire page. The project supports resolutions for mobile platforms.
+
+## Project Samples
+
+**Desktop platform**\
+![Desktop Platform (no game selected)](./sample%20images/desktop1.png)
+![Desktop Platform (game selected)](./sample%20images/desktop2.png)
+
+**Mobile platform (Landscape orientation)**\
+![Mobile Platform (landscape, no game selected)](./sample%20images/mobile1.png)
+![Mobile Platform (landscape, game selected)](./sample%20images/mobile2.png)
+
+**Mobile platform (Landscape orientation)**\
+![Mobile Platform (portrait, no game selected)](./sample%20images/mobile3.png)
+![Mobile Platform (portrait, game selected)](./sample%20images/mobile4.png)
+
+## Steam API Key
+
+The Steam APIs used will require a Steam account and a personal Steam API key to use. A Steam API key can be obtained directly from this link: [https://steamcommunity.com/dev/apikey](https://steamcommunity.com/dev/apikey)
+
+## Steam APIs Used
+
+All Steam API endpoints available can be found in the following link: [https://developer.valvesoftware.com/wiki/Steam_Web_API](https://developer.valvesoftware.com/wiki/Steam_Web_API)
+
+The following API endpoints are used for this project:
+
+- GetPlayerSummaries
+- GetRecentlyPlayedGames
+- GetUserStatsForGame
+- GetOwnedGames
+
+## Setting Up Personal Steam Profile
+
+A `.env` will need to be made in the project directory. A `.env_sample` file is available to show what should be in the .env file.
+
+In `index.js` in the main project directory and not the `src` directory, the **STEAM_ID** variable can be replaced with any ID of a Steam account (my ID is provided as a default).
 
 ## Available Scripts
 
-In the project directory, you can run:
+### `npm run start:backend`
 
-### `npm start`
+Runs the app's server locally.\
+Open [http://localhost:8000](http://localhost:8000) to view it in your browser.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Can test API endpoints made from `index.js` in the main project directory.\
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `npm run start:frontend`
 
-### `npm test`
+**Note: Must run backend server first with `npm run start:backend` before using this script**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Opens the user interface of the project and presents Steam data.
