@@ -15,7 +15,7 @@ function Games({ setShowStats, setStats, setAchievements }) {
     } else if (window.innerWidth < 1200) {
       return 30;
     } else {
-      return 60;
+      return 75;
     }
   });
 
@@ -28,7 +28,6 @@ function Games({ setShowStats, setStats, setAchievements }) {
     axios
       .request(options)
       .then((response) => {
-        console.log("Games: ", response.data["response"]["games"]);
         setGames(response.data["response"]["games"]);
       })
       .catch((error) => {
@@ -73,10 +72,6 @@ function Games({ setShowStats, setStats, setAchievements }) {
     axios
       .request(options)
       .then((response) => {
-        console.log(
-          "Achievements: ",
-          response.data["playerstats"]["achievements"]
-        );
         setAchievements(response.data["playerstats"]["achievements"]);
       })
       .catch((error) => {
@@ -95,6 +90,7 @@ function Games({ setShowStats, setStats, setAchievements }) {
               <img
                 className="gameIcon"
                 src={`http://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`}
+                alt={game.name}
                 onClick={() => {
                   setStats(game);
                   achievementsInit(game.appid);

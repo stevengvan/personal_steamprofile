@@ -14,7 +14,6 @@ function User() {
     axios
       .request(options)
       .then((response) => {
-        console.log(response.data["response"]["players"][0]);
         setUser(response.data["response"]["players"][0]);
       })
       .catch((error) => {
