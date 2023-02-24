@@ -8,12 +8,13 @@ function User() {
   useEffect(() => {
     const options = {
       method: "GET",
-      url: "https://personal-steamprofile.vercel.app/user",
+      url: "http://localhost:8000/user",
     };
 
     axios
       .request(options)
       .then((response) => {
+        console.log(response.data["response"]["players"][0]);
         setUser(response.data["response"]["players"][0]);
       })
       .catch((error) => {

@@ -9,12 +9,13 @@ function Recent({ setShowStats, setStats, setAchievements }) {
   useEffect(() => {
     const options = {
       method: "GET",
-      url: "https://personal-steamprofile.vercel.app/home/recent",
+      url: "http://localhost:8000/home/recent",
     };
 
     axios
       .request(options)
       .then((response) => {
+        console.log("Recently Played: ", response.data["response"]["games"]);
         setRecent(response.data["response"]["games"]);
       })
       .catch((error) => {
@@ -27,12 +28,16 @@ function Recent({ setShowStats, setStats, setAchievements }) {
 
     const options = {
       method: "GET",
-      url: `https://personal-steamprofile.vercel.app/home/gamestat/${gameID}`,
+      url: `http://localhost:8000/home/gamestat/${gameID}`,
     };
 
     axios
       .request(options)
       .then((response) => {
+        console.log(
+          "Achievements: ",
+          response.data["playerstats"]["achievements"]
+        );
         setAchievements(response.data["playerstats"]["achievements"]);
       })
       .catch((error) => {

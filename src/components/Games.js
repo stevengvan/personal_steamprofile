@@ -15,19 +15,20 @@ function Games({ setShowStats, setStats, setAchievements }) {
     } else if (window.innerWidth < 1200) {
       return 30;
     } else {
-      return 75;
+      return 60;
     }
   });
 
   useEffect(() => {
     const options = {
       method: "GET",
-      url: "https://personal-steamprofile.vercel.app/games",
+      url: "http://localhost:8000/games",
     };
 
     axios
       .request(options)
       .then((response) => {
+        console.log("Games: ", response.data["response"]["games"]);
         setGames(response.data["response"]["games"]);
       })
       .catch((error) => {
@@ -66,12 +67,16 @@ function Games({ setShowStats, setStats, setAchievements }) {
 
     const options = {
       method: "GET",
-      url: `https://personal-steamprofile.vercel.app/home/gamestat/${gameID}`,
+      url: `http://localhost:8000/home/gamestat/${gameID}`,
     };
 
     axios
       .request(options)
       .then((response) => {
+        console.log(
+          "Achievements: ",
+          response.data["playerstats"]["achievements"]
+        );
         setAchievements(response.data["playerstats"]["achievements"]);
       })
       .catch((error) => {
@@ -90,7 +95,6 @@ function Games({ setShowStats, setStats, setAchievements }) {
               <img
                 className="gameIcon"
                 src={`http://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`}
-                alt={game.name}
                 onClick={() => {
                   setStats(game);
                   achievementsInit(game.appid);
