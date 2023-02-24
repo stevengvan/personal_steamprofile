@@ -15,7 +15,6 @@ function Recent({ setShowStats, setStats, setAchievements }) {
     axios
       .request(options)
       .then((response) => {
-        console.log("Recently Played: ", response.data["response"]["games"]);
         setRecent(response.data["response"]["games"]);
       })
       .catch((error) => {
@@ -34,10 +33,6 @@ function Recent({ setShowStats, setStats, setAchievements }) {
     axios
       .request(options)
       .then((response) => {
-        console.log(
-          "Achievements: ",
-          response.data["playerstats"]["achievements"]
-        );
         setAchievements(response.data["playerstats"]["achievements"]);
       })
       .catch((error) => {
