@@ -9,7 +9,7 @@ function Recent({ setShowStats, setStats, setAchievements }) {
   useEffect(() => {
     const options = {
       method: "GET",
-      url: "http://localhost:8000/home/recent",
+      url: "https://personal-steamprofile.vercel.app/home/recent",
     };
 
     axios
@@ -28,7 +28,7 @@ function Recent({ setShowStats, setStats, setAchievements }) {
 
     const options = {
       method: "GET",
-      url: `http://localhost:8000/home/gamestat/${gameID}`,
+      url: `https://personal-steamprofile.vercel.app/home/gamestat/${gameID}`,
     };
 
     axios

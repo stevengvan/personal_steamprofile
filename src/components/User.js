@@ -8,7 +8,7 @@ function User() {
   useEffect(() => {
     const options = {
       method: "GET",
-      url: "http://localhost:8000/user",
+      url: "https://personal-steamprofile.vercel.app/user",
     };
 
     axios
