@@ -28,14 +28,14 @@ export default function Home({ user, recent, games }) {
             achievements={achievements}
           />
         )}
-        <div style={toggle ? { display: "none" } : { height: "inherit" }}>
+        {!toggle && (
           <Games
             gamesList={games}
             setShowStats={setToggle}
             setStats={setStats}
             setAchievements={setAchievements}
           />
-        </div>
+        )}
       </div>
     </div>
   );

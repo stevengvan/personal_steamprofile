@@ -38,7 +38,7 @@ function Games({ gamesList, setShowStats, setStats, setAchievements }) {
       setScreenSize("wide");
     }
     window.addEventListener("resize", handleResize);
-  }, []);
+  }, [screenSize]);
 
   const achievementsInit = async (appid) => {
     const response = await fetch(`/api/achievements?appid=${appid}`, {
