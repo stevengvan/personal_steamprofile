@@ -57,9 +57,10 @@ function Games({ gamesList, setShowStats, setStats, setAchievements }) {
 
       <div className="list">
         {games &&
-          games.slice(index, index + indexmodif).map((game, _) => {
+          games.slice(index, index + indexmodif).map((game, idx) => {
             return (
               <img
+                key={idx}
                 className="gameIcon"
                 src={`http://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`}
                 onClick={() => {
@@ -98,13 +99,14 @@ function Games({ gamesList, setShowStats, setStats, setAchievements }) {
               ).map((_, idx) => {
                 return (
                   <div
+                    key={idx}
                     className="index"
                     onClick={() => {
                       setIndex(indexmodif * idx);
                       setPage(idx + 1);
                     }}
                   >
-                    <p key={idx}>{idx + 1}</p>
+                    <p>{idx + 1}</p>
                   </div>
                 );
               })}
