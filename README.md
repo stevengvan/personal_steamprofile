@@ -1,6 +1,6 @@
 # Personal Steam Profile
 
-A basic Steam profile loader that retrieves all owned games and data for the game. This project was designed with the idea of showing all of the content without needing to scroll through the entire page. The project supports resolutions for mobile platforms.
+A basic Steam profile loader that retrieves all owned games and data for the game. This project was made with Next JS and was designed with the idea of showing all of the content without needing to scroll through the entire page. The project supports resolutions for mobile platforms.
 
 ## Project Demo
 
