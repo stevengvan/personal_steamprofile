@@ -22,7 +22,8 @@ function Recent({ recentList, setShowStats, setStats, setAchievements }) {
         {recent &&
           recent.slice(0, 10).map((game, _) => {
             return (
-              <div
+              <button
+                tabIndex={0}
                 key={game.appid}
                 className={
                   gameID === game.appid ? "gameConSelected" : "gameCon"
@@ -40,7 +41,7 @@ function Recent({ recentList, setShowStats, setStats, setAchievements }) {
                   src={` http://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`}
                 />
                 <p>{game.name.slice(0, 30)}</p>
-              </div>
+              </button>
             );
           })}
       </div>

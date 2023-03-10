@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 function Games({ gamesList, setShowStats, setStats, setAchievements }) {
   const [screenSize, setScreenSize] = useState("small");
@@ -59,16 +60,23 @@ function Games({ gamesList, setShowStats, setStats, setAchievements }) {
         {games &&
           games.slice(index, index + indexmodif).map((game, idx) => {
             return (
-              <img
+              <button
                 key={idx}
+                tabIndex={0}
                 className="gameIcon"
-                src={`http://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`}
                 onClick={() => {
                   setStats(game);
                   achievementsInit(game.appid);
                   setShowStats(true);
                 }}
-              />
+              >
+                <Image
+                  alt={`Game icon of ${game.name}`}
+                  src={`http://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`}
+                  width={32}
+                  height={32}
+                />
+              </button>
             );
           })}
       </div>
@@ -84,7 +92,8 @@ function Games({ gamesList, setShowStats, setStats, setAchievements }) {
           Back
         </button>
 
-        <div
+        <button
+          tabIndex={0}
           className={showIndices ? "indexListPressed" : "indexList"}
           onClick={() => {
             setShowindices(!showIndices);
@@ -98,7 +107,8 @@ function Games({ gamesList, setShowStats, setStats, setAchievements }) {
                 Array(Math.ceil(games.length / indexmodif)).keys()
               ).map((_, idx) => {
                 return (
-                  <div
+                  <button
+                    tabIndex={0}
                     key={idx}
                     className="index"
                     onClick={() => {
@@ -107,12 +117,12 @@ function Games({ gamesList, setShowStats, setStats, setAchievements }) {
                     }}
                   >
                     <p>{idx + 1}</p>
-                  </div>
+                  </button>
                 );
               })}
             </div>
           )}
-        </div>
+        </button>
 
         <button
           disabled={games && index + indexmodif >= games.length}

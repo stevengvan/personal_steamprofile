@@ -1,15 +1,21 @@
 import { useState } from "react";
+import Image from "next/image";
 
 function User({ userData }) {
   const [user, setUser] = useState(userData);
 
   return (
     <div className="userContainer">
-      <img
-        className="avatar"
-        src={user ? user.avatarfull : null}
-        alt="Steam avatar"
-      />
+      {user && (
+        <Image
+          className="avatar"
+          src={user.avatarfull}
+          alt="Steam avatar"
+          width={0}
+          height={0}
+          sizes="100vw"
+        />
+      )}
       <div className="info">
         <h1 className="username" alt="Steam username">
           {user && user.personaname.substring(0, 16)}
